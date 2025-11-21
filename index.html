@@ -1,29 +1,26 @@
 <html>
-    <body>
-        Hello HTW
+<body>
+    Hello HTW
 
-        # add two input field s and a button
-        <form>
-            <input type="text" id="email" name="email" >
-            <input type="text" id="name" name="name" >
+    <!-- add two input fields and a button -->
+    <form>
+        <input type="text" id="email" name="email">
+        <input type="text" id="name" name="name">
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
 
-            <script>
-                document.querySelector('button').addEventListener('click', function() {
-                    const email = document.getElementById('email').value;
-                    const name = document.getElementById('name').value;
-                    const url = `https://2oe91jroze.execute-api.eu-west-1.amazonaws.com/default/nicofirstMS?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
-                    
-                    fetch(url)
-                        .then(response => response.json())
-                        .then(data => console.log(data))
-                        .catch(error => console.error('Error:', error));
-                });
-            </script>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
 
-            <button type="button">Submit</button>
-        </form> 
+            const url = `https://2oe91jroze.execute-api.eu-west-1.amazonaws.com/default/nicofirstMS?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
 
-    </body>
-
-
+            fetch(url)
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
 </html>
