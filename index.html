@@ -2,19 +2,18 @@
 <body>
     Hello HTW
 
-    <!-- add two input fields and a button -->
     <form>
-        <input type="text" id="email" name="email" >
+        <input type="text" id="email" name="email">
         <input type="text" id="name" name="name">
         <button type="button" id="submitBtn">Submit</button>
     </form>
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function () {
-             const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value;
             const name = document.getElementById('name').value;
 
-            const url = 'https://e3858n0ljh.execute-api.eu-west-1.amazonaws.com/default/nira-db-function?name='+ name+'&email='+email`;
+            const url = `https://e3858n0ljh.execute-api.eu-west-1.amazonaws.com/default/nira-db-function?name=${name}&email=${email}`;
 
             fetch(url)
                 .then(response => response.json())
@@ -24,3 +23,4 @@
     </script>
 </body>
 </html>
+
