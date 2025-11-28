@@ -11,10 +11,10 @@
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function () {
-            
+             const email = document.getElementById('email').value;
             const name = document.getElementById('name').value;
 
-            const url = `https://6fx4whohxl.execute-api.eu-west-1.amazonaws.com/default/nira-function?name=`+ encodeURIComponent(name)`;
+            const url = `https://6fx4whohxl.execute-api.eu-west-1.amazonaws.com/default/nira-function?name=`+ encodeURIComponent(name)`&email = `+ encodeURIComponent(email)`;
 
             fetch(url)
                 .then(response => response.json())
